@@ -3,8 +3,6 @@ import plus from "../images/profile/plus.svg";
 
 import Card from "./Card"
 
-import { useState } from "react";
-
 export default function Main(props) {
 
     return (
