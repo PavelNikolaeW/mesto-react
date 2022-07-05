@@ -4,7 +4,7 @@ export default function PopupWithForm({ name, title, btnText, children, isOpen, 
       <div className="popup__card-container">
         <div className="popup__body popup__body-small">
           <h2 className="popup__title"> {title} </h2>
-          <form action="#" name={`${name}Form`} className="popup__form" noValidate>
+          <form action="#" name={`${name}Form`} className="popup__form" >
             {children}
             <button type="submit" className="popup__submit">
               {btnText}
