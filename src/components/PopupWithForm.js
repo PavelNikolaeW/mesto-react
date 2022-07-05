@@ -1,17 +1,17 @@
 export default function PopupWithForm({ name, title, btnText, children, isOpen, onClose }) {
   return (
-    <div class={'popup ' + (isOpen && 'popup_opened')} id={`popup-${name}`}>
-      <div class="popup__card-container">
-        <div class="popup__body popup__body-small">
-          <h2 class="popup__title"> {title} </h2>
-          <form action="#" name={`${name}Form`} class="popup__form" novalidate>
+    <div className={'popup ' + (isOpen && 'popup_opened')} id={`popup-${name}`}>
+      <div className="popup__card-container">
+        <div className="popup__body popup__body-small">
+          <h2 className="popup__title"> {title} </h2>
+          <form action="#" name={`${name}Form`} className="popup__form" noValidate>
             {children}
-            <button type="submit" class="popup__submit">
+            <button type="submit" className="popup__submit">
               {btnText}
             </button>
           </form>
         </div>
-        <button type="button" class="popup__close" onClick={onClose}></button>
+        <button type="button" className="popup__close" onClick={onClose}></button>
       </div>
     </div>
   );

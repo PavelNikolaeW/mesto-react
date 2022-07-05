@@ -3,14 +3,14 @@ export default function Card({ card, onCardClick }) {
         onCardClick(card)
     }
   return (
-    <li class="card" id={card._id}>
-      <button type="button" class="card__urn"></button>
-      <img src={card.link} alt={card.name} class="card__img" onClick={handleCardClick}></img>
-      <div class="card__footer">
-        <h2 class="card__title">{card.name}</h2>
-        <div class="card__like">
-          <button type="button" class="card__button"></button>
-          <span class="card__counter"> 0 </span>
+    <li className="card">
+      <button type="button" className="card__urn"></button>
+      <img src={card.link} alt={card.name} className="card__img" onClick={handleCardClick}></img>
+      <div className="card__footer">
+        <h2 className="card__title">{card.name}</h2>
+        <div className="card__like">
+          <button type="button" className="card__button"></button>
+          <span className="card__counter"> 0 </span>
         </div>
       </div>
     </li>

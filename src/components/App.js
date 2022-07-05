@@ -52,7 +52,7 @@ function App() {
   }, []);
 
   return (
-    <body class="page">
+    <>
       <Header />
       <Main
         userInfo={userInfo}
@@ -67,7 +67,7 @@ function App() {
       <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
       <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} />
       <ImagePopup card={selectedCard} onClose={closeAllPopups} />
-    </body>
+    </>
   );
 }
 
