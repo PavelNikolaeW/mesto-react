@@ -1,10 +1,28 @@
+import React from "react";
 import PopupWithForm from "./PopupWithForm";
 
-export default function EditAvatarPopup({ isOpen, onClose }) {
+export default function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
+  const avatarRef = React.useRef();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    onUpdateAvatar({ avatar: avatarRef.current.value });
+    avatarRef.current.value = "";
+  }
+
   return (
-    <PopupWithForm name="avatar" title="Обновить аватар" btnText="Сохранить" isOpen={isOpen} onClose={onClose}>
+    <PopupWithForm
+      name="avatar"
+      title="Обновить аватар"
+      btnText="Сохранить"
+      isOpen={isOpen}
+      onClose={onClose}
+      onSubmit={handleSubmit}
+    >
       <label htmlFor="avatar" className="popup__label">
         <input
+          ref={avatarRef}
           type="url"
           name="avatar"
           className="popup__input popup__input_type_link"
