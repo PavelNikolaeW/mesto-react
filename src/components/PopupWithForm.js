@@ -1,4 +1,12 @@
-export default function PopupWithForm({ name, title, btnText, children, isOpen, onClose, onSubmit }) {
+export default function PopupWithForm({
+  name,
+  title,
+  btnText,
+  children,
+  isOpen,
+  onClose,
+  onSubmit,
+}) {
   return (
     <div className={'popup ' + (isOpen && 'popup_opened')} id={`popup-${name}`}>
       <div className="popup__card-container">

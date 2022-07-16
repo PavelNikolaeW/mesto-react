@@ -5,6 +5,11 @@ export default function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
   const [name, setName] = React.useState("");
   const [link, setLink] = React.useState("");
 
+  React.useEffect(() => {
+    setName("");
+    setLink("");
+  }, [isOpen]);
+
   function handleNewPlace(e) {
     setName(e.target.value);
   }
@@ -16,8 +21,6 @@ export default function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
   function handleSubmit(e) {
     e.preventDefault();
     onAddPlace({ name, link });
-    setName("");
-    setLink("");
   }
 
   return (

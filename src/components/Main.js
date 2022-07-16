@@ -1,30 +1,20 @@
-import pencil from "../images/profile/pencil.svg";
-import plus from "../images/profile/plus.svg";
+import pencil from '../images/profile/pencil.svg';
+import plus from '../images/profile/plus.svg';
 
-import React from "react";
-import Card from "./Card";
-import { api } from "../utils/Api";
-import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import React from 'react';
+import Card from './Card';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-export default function Main({ cards, setCards, onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
+export default function Main({
+  cards,
+  onEditProfile,
+  onAddPlace,
+  onEditAvatar,
+  onCardClick,
+  onCardLike,
+  onCardDelete,
+}) {
   const currentUser = React.useContext(CurrentUserContext);
-
-  function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
-    api
-      .changeLikeCardStatus(card._id, !isLiked)
-      .then((newCard) => {
-        setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
-      })
-      .catch((err) => console.log(err));
-  }
-
-  function handleCardDelete(card) {
-    api
-      .deleteCard(card._id)
-      .then(() => setCards((state) => state.filter((elem) => elem._id !== card._id)))
-      .catch((err) => console.log(err));
-  }
 
   return (
     <main className="main container">
@@ -73,8 +63,8 @@ export default function Main({ cards, setCards, onEditProfile, onAddPlace, onEdi
               card={card}
               key={card._id}
               onCardClick={onCardClick}
-              onCardLike={handleCardLike}
-              onCardDelete={handleCardDelete}
+              onCardLike={onCardLike}
+              onCardDelete={onCardDelete}
             />
           ))}
         </ul>
